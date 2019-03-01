@@ -1,7 +1,7 @@
 package com.epam;
 import java.util.Scanner;
 public class Main {
-
+    final private static int SIDE = 5;
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         int exit = 1;
@@ -36,54 +36,53 @@ public class Main {
         }
     }
     private static void drawFirstFigure() {
-
-        for (int line = 0; line < 5; line++) {
-            for (int column = 0; column <= line; column++) {
+        for (int line = 1; line < SIDE; line++) {
+            for (int column = 1; column <= line; column++) {
                 System.out.print(" *");
             }
             System.out.println();
         }
-        for (int line = 5; line >= 0; line--) {
-            for (int column = 0; column <= line; column++) {
+        for (int line = SIDE; line > 0; line--) {
+            for (int column = 0; column < line; column++) {
                 System.out.print(" *");
             }
             System.out.println();
         }
     }
     private static void drawSecondFigure() {
-        for (int line = 5; line >= 0; line--) {
-            for (int column = 5; (column-line) > 0; column--) {
+        for (int line = SIDE; line > 0; line--) {
+            for (int column = SIDE; (column-line) > 0; column--) {
                 System.out.print("  ");
             }
-            for (int column = 0; column <= line; column++) {
+            for (int column = 0; column < line; column++) {
                 System.out.print(" *");
             }
             System.out.println();
         }
     }
     private static void drawThirdFigure() {
-        for (int line = 5; line >= 0; line--) {
-            for (int column = 0; column <= line; column++) {
+        for (int line = SIDE; line > 0; line--) {
+            for (int column = 1; column < line; column++) {
                 System.out.print("  ");
             }
-            for (int column = 5; (column-line) >= 0; column--) {
+            for (int column = SIDE; (column-line) >= 0; column--) {
                 System.out.print(" *");
             }
             System.out.println();
         }
     }
     private static void drawFourthFigure() {
-        for (int line = 5; line >= 0; line--) {
-            for (int column = 0; column < line; column++) {
+        for (int line = SIDE; line > 0; line--) {
+            for (int column = 1; column <= line; column++) {
                 System.out.print("  ");
             }
-            for (int column = 5; (column-line) >= 0; column--) {
+            for (int column = SIDE; (column-line) > 0; column--) {
                 System.out.print(" *");
             }
             System.out.println();
         }
-        for (int line = 5; line > 0; line--) {
-            for (int column = 5; (column-line) >= 0; column--) {
+        for (int line = SIDE; line > 0; line--) {
+            for (int column = SIDE; (column-line) > 0; column--) {
                 System.out.print("  ");
             }
             for (int column = 0; column < line; column++) {
@@ -96,11 +95,11 @@ public class Main {
     }
     private static void drawFifthFigure() {
         for (int halfFigure = 0; halfFigure < 2; halfFigure++) {
-            for (int line = 5; line >= 0; line--) {
-                for (int column = 0; column < line; column++) {
+            for (int line = 1; line <= SIDE; line++) {
+                for (int column = SIDE; column > line; column--) {
                     System.out.print("  ");
                 }
-                for (int column = 11 - 2 * line; column > 0; column--) {
+                for (int column = 2 * line - 1; column > 0; column--) {
                     System.out.print(" *");
                 }
                 System.out.println();

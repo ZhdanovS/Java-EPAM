@@ -22,9 +22,6 @@ public class Main {
 
         }
     }
-    static void getUniqueCharactersSecondVersion (String str) {
-
-    }
     static void output (){
         System.out.println("result = " + result);
     }

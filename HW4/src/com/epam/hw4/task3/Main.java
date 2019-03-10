@@ -1,4 +1,4 @@
-package com.epam.hw4.task2;
+package com.epam.hw4.task3;
 
 import java.util.Scanner;
 
@@ -11,35 +11,24 @@ public class Main {
             System.out.println("Wrong input!");
             number = input();
         }
-        transformIntoBinary(number);
+        createString(number);
         out ();
     }
-    static void  transformIntoBinary (int number){
-        int bit;
-        int divided = number;
-        if (number < 0){
-            divided *= -1;
-        }
-        do {
-            bit = divided % 2;
-            result =  bit + result;
-            divided /=2;
-        }
-        while (divided != 0);
-        if (number < 0){
-            result = "-" + result;
-        }
+    static void  createString (int number){
+        int lastNumber = number % 10;
+        int preLastNumber = (number - lastNumber)/10 % 10;
+        result = result + lastNumber + preLastNumber;
     }
     static void out (){
         System.out.println("Result = " + result);
     }
     static int input () {
         Scanner scan = new Scanner(System.in);
-        System.out.print("Enter number (-32768..32767): " + result);
+        System.out.print("Enter number(32767..-10 or 10..-32768: " + result);
         return scan.nextInt();
     }
     static boolean check(int number){
-        if (number > 32767 || number < -32768){
+        if (number > 32767 || number < -32768 || (number > -10 && number < 10)){
             return true;
         }
         return false;

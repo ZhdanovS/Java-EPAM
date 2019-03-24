@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Main {
     private static Scanner scan = new Scanner(System.in);
-    private static Book book;
+
 
     public static void main(String[] args) {
         int sizeArray;
@@ -25,7 +25,7 @@ public class Main {
             choice = scan.nextInt();
             switch (choice) {
                 case 1:
-                    recordBook(books, book);
+                    recordBook(books);
                     break;
                 case 2:
                     changePrice(books);
@@ -44,7 +44,7 @@ public class Main {
             }
         }
     }
-    private static void recordBook (Books books, Book book){
+    private static void recordBook (Books books){
         scan.nextLine();
         System.out.print("Name: ");
         String name = scan.nextLine();
@@ -59,8 +59,8 @@ public class Main {
         System.out.print("Price: ");
         float price = scan.nextFloat();
 
-        book = new Book(id, name, author, year, numberOfPages, price);
-        books.addBook(book);
+
+        books.addBook(new Book(id, name, author, year, numberOfPages, price));
         System.out.println("Done!");
     }
     private static void changePrice(Books books){

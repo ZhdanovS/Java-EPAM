@@ -55,11 +55,12 @@ public class Book {
     }
 
     public void view(){
-        System.out.println("ID: " + id);
-        System.out.println("Name: " + name);
-        System.out.println("Author: " + author);
-        System.out.println("Year: " + year);
-        System.out.println("Number of pages: " + numberOfPages);
-        System.out.println("Price: " + price);
+        System.out.print("ID: " + id + " |");
+        System.out.print(" Name: " + name + " |");
+        System.out.print(" Author: " + author + " |");
+        System.out.print(" Year: " + year + " |");
+        System.out.print(" Number of pages: " + numberOfPages + " |");
+        System.out.println(" Price: " + price);
     }
 }
+

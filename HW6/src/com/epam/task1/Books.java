@@ -1,10 +1,8 @@
 package com.epam.task1;
 
-import java.util.Scanner;
-
 public class Books {
 
-    Book[] arrayBooks;
+    private Book[] arrayBooks;
 
     Books(int sizeArray) {
         arrayBooks = new Book[sizeArray];
@@ -25,7 +23,7 @@ public class Books {
     void showArray(){
         for(Book element : arrayBooks){
             if(element != null){
-                outputBook(element);
+                element.view();
             }
             else{
                 System.out.println("You have space for new book!");
@@ -52,51 +50,57 @@ public class Books {
             }
         }
     }
-    void searchAuthor(String author){
-        boolean find = false;
-        for(Book element : arrayBooks){
-            if(element != null && element.getAuthor().equals(author)) {
-                find = true;
-                System.out.println("Book with author \"" + author + "\": ");
-                outputBook(element);
-            }
-            else if(!find && element == null){
-                System.out.println("You haven't book with \"" + author + "\" !");
-                break;
-            }
-            else if(!find && element == arrayBooks[arrayBooks.length-1]){
-                System.out.println("You haven't book with \"" + author + "\" !");
-                break;
-            }
+    Books searchAuthor(String author){
 
+        int size = calculateSize(author);
+
+        if(size==0){
+            System.out.println("You have not book with this author!");
+            return null;
         }
-    }
-    void searchYear(int year){
-        boolean find = false;
+        Books array = new Books(size);
         for(Book element : arrayBooks){
-            if(element != null && element.getYear() > year) {
-                find = true;
-                System.out.println("Book are published after " + year + ": ");
-                outputBook(element);
-            }
-            else if(element == null && find == false){
-                System.out.println("You haven't book are published after " + year + "!");
-                break;
-            }
-            else if(find == false && element == arrayBooks[arrayBooks.length-1]){
-                System.out.println("You haven't book are published after " + year + "!");
-                break;
+            if(element != null && author.equals(element.getAuthor())){
+                array.addBook(element);
             }
         }
+        return array;
     }
-    void outputBook(Book element){
-        System.out.print("ID: " + element.getId() + " |");
-        System.out.print(" Name: " + element.getName() + " |");
-        System.out.print(" Author: " + element.getAuthor() + "|");
-        System.out.print(" Year: " + element.getYear() + " |");
-        System.out.print(" Number of pages: " + element.getNumberOfPages() + " |");
-        System.out.println(" Price: " + element.getPrice());
+    Books searchYear(int year){
+        int size = calculateSize( year);
+        for(Book element : arrayBooks){
+            if (element != null && year < element.getYear()){
+                size++;
+            }
+        }
+        if(size==0){
+            System.out.println("You have not book published after " + year + "!");
+            return null;
+        }
+        Books array = new Books(size);
+        for(Book element : arrayBooks){
+            if(element != null && year < element.getYear()){
+                array.addBook(element);
+            }
+        }
+        return array;
     }
-
-
+    private int calculateSize(int year){
+        int size = 0;
+        for(Book element : arrayBooks){
+            if (element != null && year < element.getYear()){
+                size++;
+            }
+        }
+        return size;
+    }
+    private int calculateSize(String author){
+        int size = 0;
+        for(Book element : arrayBooks){
+            if(element != null && author.equals(element.getAuthor())){
+                size++;
+            }
+        }
+        return size;
+    }
 }

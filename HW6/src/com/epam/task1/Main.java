@@ -85,13 +85,15 @@ public class Main {
         System.out.print("Enter author: ");
         scan.nextLine();
         author = scan.nextLine();
-        books.searchAuthor(author);
-        }
+        Books authors = books.searchAuthor(author);
+        authors.showArray();
+    }
     private static void searchYear(Books books){
         int year;
         System.out.print("Enter year: ");
         year = scan.nextInt();
-        books.searchYear(year);
+        Books yearsBooks = books.searchYear(year);
+        yearsBooks.showArray();
     }
 
 }

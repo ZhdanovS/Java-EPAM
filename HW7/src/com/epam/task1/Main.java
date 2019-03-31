@@ -4,7 +4,7 @@ import sun.plugin.javascript.navig.Array;
 import java.util.Arrays;
 
 public class Main {
-    static Shape [] array = new Shape[9];
+    private static Shape [] array = new Shape[9];
 
     public static void main(String[] args) {
 
@@ -27,23 +27,23 @@ public class Main {
     System.out.println();
     System.out.println("All area: " + calculateAllArea());
     System.out.println();
-    calculateAndPrintAreaOfTypes();
+    printAreaOfTypes(calculateAreaOfTypes());
     }
 
-    static void printArrayOfAreaElements (){
+    private static void printArrayOfAreaElements (){
         for(Shape element: array){
             System.out.print(element.getClass().getSimpleName());
             System.out.println(" Area: " + element.calcArea());
         }
     }
-    static void printArray (){
+    private static void printArray (){
         for(Shape element: array){
             System.out.println(element.toString());
 
         }
     }
 
-    static double calculateAllArea (){
+    private static double calculateAllArea (){
         double sum = 0;
         for(Shape element: array){
             sum += element.calcArea();
@@ -51,26 +51,28 @@ public class Main {
         return sum;
     }
 
-    static void calculateAndPrintAreaOfTypes(){
-        double areaTriangles = 0;
-        double areaCircles = 0;
-        double areaRectangles = 0;
+    static double[] calculateAreaOfTypes(){
+        double[] areaOfTypes = new double[3];
+
         for(Shape element: array){
             if (element instanceof Triangle){
-                areaTriangles += element.calcArea();
+                areaOfTypes[0] += element.calcArea();
             }
             else if (element instanceof Circle){
-                areaCircles += element.calcArea();
+                areaOfTypes[1] += element.calcArea();
             }
             else if (element instanceof Rectangle){
-                areaRectangles += element.calcArea();
+                areaOfTypes[2] += element.calcArea();
             }
 
         }
-        System.out.println("Area rectangles: " + areaRectangles);
-        System.out.println("Area circles: " + areaCircles);
-        System.out.println("Area triangles: " + areaTriangles);
 
+        return areaOfTypes;
+    }
+    private static void printAreaOfTypes(double[] areaOfTypes){
+        System.out.println("Area rectangles: " + areaOfTypes[2]);
+        System.out.println("Area circles: " + areaOfTypes[1]);
+        System.out.println("Area triangles: " + areaOfTypes[0]);
     }
 
 }

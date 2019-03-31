@@ -14,7 +14,7 @@ public class Triangle extends Shape {
     }
     @Override
     public String toString(){
-        return  "class: "+ this.getClass().getSimpleName() + " color: " + this.color + " a: " + this.a + " b: " + this.b + " c: " + this.c;
+        return  "class: "+ this.getClass().getSimpleName() + " | color: " + this.color + " | a: " + this.a + " | b: " + this.b + " | c: " + this.c;
     }
 
     @Override

@@ -13,7 +13,7 @@ public class Rectangle extends Shape {
 
     @Override
     public String toString(){
-        return  "class: "+ this.getClass().getSimpleName() + " color: " + this.color + " width: " + this.width + " height: " + this.height;
+        return  "class: "+ this.getClass().getSimpleName() + " | color: " + this.color + " | width: " + this.width + " | height: " + this.height;
     }
 
     @Override

@@ -8,7 +8,7 @@ public class Shape {
 
     @Override
     public String toString(){
-        return  "class: "+ this.getClass().getSimpleName() + "color: " + this.color;
+        return  "class: "+ this.getClass().getSimpleName() + " | сolor: " + this.color;
     }
 
     double calcArea(){

@@ -10,7 +10,7 @@ public class Circle extends Shape {
 
     @Override
     public String toString(){
-        return  "class: "+ this.getClass().getSimpleName() + " color: " + this.color + " radius: " + this.radius;
+        return  "class: "+ this.getClass().getSimpleName() + " | color: " + this.color + " | radius: " + this.radius;
     }
 
     @Override

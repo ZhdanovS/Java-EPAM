@@ -13,7 +13,7 @@ public class Main {
 	    myArr[i] = (int)(Math.random()*100);
     }
 
-	System.out.println("Given:  ");
+	System.out.println("Given:   ");
 	showArr(myArr);
 
 	Arrays.sort(myArr, (o1, o2)-> {
